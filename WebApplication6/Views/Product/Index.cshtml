@@ -1,0 +1,58 @@
+﻿@model List<ProductModel>
+
+@{ ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h1>Index</h1>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+
+    @{ foreach (var item1 in Model)
+       {
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(Model => item1.Product_Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(Model => item1.Produc_Category)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(Model => item1.Produc_date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(Model => item1.Produc_Price)
+                </th>
+
+                <th></th>
+            </tr> 
+       } 
+     }
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Product_Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Produc_Category)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Produc_date)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Produc_Price)
+    </td>
+
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Produc_Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Produc_Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Produc_Id })
+    </td>
+</tr>
+}
+
+</table>
+
